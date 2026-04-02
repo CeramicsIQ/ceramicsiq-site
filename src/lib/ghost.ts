@@ -102,8 +102,7 @@ export const mockArticles: Article[] = [
     subtitle: "Learning to See the Kiln's Signature",
     tag: "Techniques",
     author: "Lin Kensington",
-    date: "March
-14, 2026",
+    date: "March 14, 2026",
     readTime: "5 min",
     excerpt: "Those rough spots on the foot of a pot? They're evidence of process — and collectors should know the difference.",
     image: IMG.kiln,
@@ -163,6 +162,7 @@ function ghostPostToArticle(post: any): Article {
     image: post.feature_image || IMG.sodaFiring,
     html: post.html,
     featured: post.featured || false,
+    // Custom ceramic metadata from Ghost code injection or custom fields
     temp: post.codeinjection_head ? extractMeta(post.codeinjection_head, "temp") : undefined,
     body: post.codeinjection_head ? extractMeta(post.codeinjection_head, "body") : undefined,
     atm: post.codeinjection_head ? extractMeta(post.codeinjection_head, "atm") : undefined,
@@ -173,6 +173,8 @@ function extractMeta(code: string, key: string): string | undefined {
   const match = code.match(new RegExp(`data-${key}="([^"]+)"`));
   return match?.[1];
 }
+
+// ─── Public API ───
 
 export async function getArticles(): Promise<Article[]> {
   if (!isGhostConfigured()) return mockArticles;
@@ -212,6 +214,7 @@ export async function getFeaturedArticles(): Promise<Article[]> {
 }
 
 export async function getArtists(): Promise<Artist[]> {
+  // Artists will come from Ghost pages or a custom integration later
   return mockArtists;
 }
 
