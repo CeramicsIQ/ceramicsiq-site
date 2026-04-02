@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* CeramicsIQ palette */
+  --color-ember: #E8520E;
+  --color-ash: #1A1410;
+  --color-warm: #F6F1EB;
+  --color-cream: #FDF9F4;
+  --color-smoke: #8A7E72;
+  --color-line: rgba(26, 20, 16, 0.1);
+  --color-faint: rgba(26, 20, 16, 0.04);
+
+  /* Fonts */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Base */
+body {
+  background: var(--color-warm);
+  color: var(--color-ash);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(232, 82, 14, 0.18);
+}
+
+/* B&W to color hover effect */
+.hover-image {
+  filter: saturate(0) contrast(1.1);
+  transition: filter 0.5s ease;
+}
+.hover-image:hover,
+.group:hover .hover-image {
+  filter: saturate(1.1) contrast(1);
+}
+
+/* Ghost content styling */
+.ghost-content h2 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-ash);
+  line-height: 1.2;
+  margin-top: 3rem;
+  margin-bottom: 0.875rem;
+}
+
+.ghost-content h3 {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-ash);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ghost-content p {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #4A4238;
+  margin-bottom: 1.25rem;
+}
+
+.ghost-content strong {
+  font-weight: 600;
+  color: var(--color-ash);
+}
+
+.ghost-content blockquote {
+  border-left: 3px solid var(--color-ember);
+  padding-left: 1.25rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--color-smoke);
+}
+
+.ghost-content ul,
+.ghost-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.ghost-content li {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #4A4238;
+  margin-bottom: 0.5rem;
+}
+
+.ghost-content img {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.ghost-content a {
+  color: var(--color-ember);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ghost-content figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-smoke);
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
