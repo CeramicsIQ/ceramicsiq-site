@@ -31,9 +31,16 @@ export default function SubscribePage() {
             <h2 className="font-serif text-2xl font-bold text-ash leading-snug mb-3">
               5 Things Collectors Notice in Every Strong Ceramic Piece
             </h2>
-            <p className="text-[15px] text-smoke leading-relaxed">
+            <p className="text-[15px] text-smoke leading-relaxed mb-4">
               A short guide to developing your eye — what separates work that holds up from work that just looks good in photos.
             </p>
+            <a
+              href="/lead-magnet.pdf"
+              download="5-Things-Collectors-Notice-CeramicsIQ.pdf"
+              className="inline-block text-[11px] font-bold uppercase tracking-widest text-ember border border-ember px-4 py-2 hover:bg-ember hover:text-cream transition-colors"
+            >
+              Download free guide →
+            </a>
           </div>
         </div>
       </section>
