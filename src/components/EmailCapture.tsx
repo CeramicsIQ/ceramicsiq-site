@@ -51,7 +51,7 @@ export function EmailCapture({ variant = "light" }: { variant?: "light" | "dark"
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-2 max-w-[420px] w-full">
-      <div className="flex">
+      <div className="flex flex-col sm:flex-row">
         <input
           type="email"
           value={email}
@@ -59,7 +59,7 @@ export function EmailCapture({ variant = "light" }: { variant?: "light" | "dark"
           placeholder="your@email.com"
           required
           disabled={state === "loading"}
-          className={`flex-1 px-4 py-3 text-sm border border-r-0 outline-none focus:ring-2 focus:ring-ember disabled:opacity-60 ${
+          className={`flex-1 px-4 py-3 text-sm border sm:border-r-0 outline-none focus:ring-2 focus:ring-ember disabled:opacity-60 ${
             dark
               ? "bg-white/5 border-white/15 text-[#ddd] placeholder:text-[#666]"
               : "bg-white border-line text-ash placeholder:text-smoke"
@@ -68,7 +68,7 @@ export function EmailCapture({ variant = "light" }: { variant?: "light" | "dark"
         <button
           type="submit"
           disabled={state === "loading"}
-          className="px-6 py-3 text-sm font-semibold bg-ember text-white border-none cursor-pointer whitespace-nowrap hover:opacity-90 transition-opacity disabled:opacity-60"
+          className="w-full sm:w-auto px-6 py-3 text-sm font-semibold bg-ember text-white border-none cursor-pointer whitespace-nowrap hover:opacity-90 transition-opacity disabled:opacity-60"
         >
           {state === "loading" ? "..." : "Subscribe + free guide"}
         </button>
