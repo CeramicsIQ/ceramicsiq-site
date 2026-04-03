@@ -52,7 +52,7 @@ export default function SubscribePage() {
       <section className="border-t border-line py-10 px-8">
         <div className="max-w-[520px] mx-auto">
           <h3 className="text-[15px] font-bold uppercase tracking-wide text-ash mb-5">
-            What you&apos;ll get
+            Every week in your inbox
           </h3>
           {[
             "Technique breakdowns — how soda firing, wood firing, and atmospheric glazing actually work",
