@@ -12,6 +12,18 @@ export default async function HomePage() {
 
   return (
     <div className="bg-warm">
+      {/* ── Tagline bar ── */}
+      <div className="border-b border-line bg-cream">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10">
+          <p className="font-serif text-lg sm:text-xl font-semibold text-ash leading-snug">
+            The Intelligence Behind Ceramics.
+          </p>
+          <p className="text-sm text-smoke mt-3">
+            A deeper look at process, form, and glaze.
+          </p>
+        </div>
+      </div>
+
       {/* ── Hero: editorial layout — stacks on mobile, 3-col on desktop ── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-8 py-7 grid grid-cols-1 lg:grid-cols-[1fr_340px_260px] gap-7 border-b border-line">
         {/* Lead story */}
