@@ -19,7 +19,7 @@ export function EmailCapture({ variant = "light" }: { variant?: "light" | "dark"
 
   function triggerDownload() {
     const a = document.createElement("a");
-    a.href = "/lead-magnet.pdf";
+    a.href = "/Lead Magnet PDF - 5 Things Collectors Notice.pdf";
     a.download = "5-Things-Collectors-Notice-CeramicsIQ.pdf";
     document.body.appendChild(a);
     a.click();
