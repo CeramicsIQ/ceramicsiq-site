@@ -28,14 +28,14 @@ body {
   background: rgba(232, 82, 14, 0.18);
 }
 
-/* B&W to color hover effect */
+/* Sepia to color hover effect */
 .hover-image {
-  filter: saturate(0) contrast(1.1);
-  transition: filter 0.5s ease;
+  filter: sepia(0.85) contrast(1.05) brightness(0.97);
+  transition: filter 0.6s ease;
 }
 .hover-image:hover,
 .group:hover .hover-image {
-  filter: saturate(1.1) contrast(1);
+  filter: sepia(0) saturate(1.1) contrast(1) brightness(1);
 }
 
 /* Ghost content styling */
