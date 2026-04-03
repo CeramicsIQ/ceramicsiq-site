@@ -43,9 +43,9 @@ export function Footer() {
               Follow
             </h4>
             {[
-              { label: "YouTube", href: "https://www.youtube.com/@CeramicsIQ" },
-              { label: "Instagram", href: "#" },
-              { label: "Pinterest", href: "#" },
+              { label: "X", href: "https://x.com/ceramicsiq" },
+              { label: "Instagram", href: "https://instagram.com/ceramicsiq" },
+              { label: "Facebook", href: "https://facebook.com/ceramicsiq" },
             ].map(({ label, href }) => (
               <a
                 key={label}
