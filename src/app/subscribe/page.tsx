@@ -42,7 +42,7 @@ export default function SubscribePage() {
                 5 Things Collectors Notice in Every Strong Ceramic Piece
               </p>
               <p className="text-[13px] text-smoke leading-relaxed">
-                &ldquo;Inside the Clay&rdquo; — Secrets only a potter would notice.
+                &ldquo;Inside the Clay&rdquo;, Secrets only a potter would notice.
               </p>
             </div>
           </div>
@@ -55,10 +55,10 @@ export default function SubscribePage() {
             Every week in your inbox
           </h3>
           {[
-            "Technique breakdowns — how soda firing, wood firing, and atmospheric glazing actually work",
-            "Artist profiles — the potters pushing the craft forward",
-            "Collector intelligence — how to evaluate, buy, and build a collection",
-            "Market notes — what's moving and where attention is shifting",
+            "Technique breakdowns, how soda firing, wood firing, and atmospheric glazing actually work",
+            "Artist profiles, the potters pushing the craft forward",
+            "Collector intelligence, how to evaluate, buy, and build a collection",
+            "Market notes, what's moving and where attention is shifting",
           ].map((item, i) => (
             <div
               key={i}
