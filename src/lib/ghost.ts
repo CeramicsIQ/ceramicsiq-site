@@ -42,7 +42,8 @@ const IMG = {
   glaze: "https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?w=800&h=800&fit=crop&q=80",
   kiln: "https://images.unsplash.com/photo-1548101307-740937b6db84?w=800&h=600&fit=crop&q=80",
   hero: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1400&h=900&fit=crop&q=80",
-  founder: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=600&h=600&fit=crop&q=80",
+  founder: "https://res.cloudinary.com/dw7tdz8ee/image/upload/v1775342925/LinKensingtonPotteryHeadshot_ja8tzv.jpg",
+  linPortrait: "https://res.cloudinary.com/dw7tdz8ee/image/upload/v1775342911/LinKensingtonHeadshotArtist_psxha6.png",
 };
 
 export const mockArticles: Article[] = [
