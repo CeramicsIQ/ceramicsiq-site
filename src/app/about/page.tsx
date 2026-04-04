@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   description:
     "CeramicsIQ is technique deep-dives, artist features, and collector intelligence for the ceramics world. Built by Lin Kensington, a working soda-fired ceramicist.",
   openGraph: {
-    title: "About | CeramicsIQ",
+    title: "About | CeramicsIQ",h
     description:
       "Built by a working ceramicist. Technique deep-dives, artist features, and collector intelligence.",
   },
-};
+};h
 
 export default function AboutPage() {
   return (
@@ -35,7 +35,7 @@ export default function AboutPage() {
         </div>
         <div className="overflow-hidden">
           <img
-            src={IMG.founder}
+            src="https://res.cloudinary.com/dw7tdz8ee/image/upload/v1775338432/ceramicsiq/lin-kensington-pottery-headshot.jpg"
             alt="Lin Kensington"
             className="hover-image w-full h-[280px] md:h-[400px] object-cover"
           />
