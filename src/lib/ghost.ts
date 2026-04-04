@@ -170,15 +170,15 @@ function smartExcerpt(text: string, maxLen = 220): string {
 function cleanDashes(text: string): string {
   if (!text) return "";
   let out = text;
-  // 1. Replace HTML entities first (before they get decoded)
-  out = out.replace(/&mdash;/gi, "â").replace(/&ndash;/gi, "â");
-  out = out.replace(/&#8212;/g, "â").replace(/&#8211;/g, "â");
-  // 2. En dash between numbers â "to" (e.g., 60â80 â 60 to 80)
-  out = out.replace(/(\d)\s*[ââ]\s*(\d)/g, "$1 to $2");
-  // 3. Em/en dash used as punctuation (with spaces) â comma
-  out = out.replace(/\s+[ââ]\s+/g, ", ");
-  // 4. Any remaining em/en dashes â comma + space
-  out = out.replace(/[ââ]/g, ", ");
+  // 1. Replace HTML entities first
+  out = out.replace(/&mdash;/gi, "\u2014").replace(/&ndash;/gi, "\u2013");
+  out = out.replace(/&#8212;/g, "\u2014").replace(/&#8211;/g, "\u2013");
+  // 2. En dash between numbers to "to" (e.g., 60-80 to 60 to 80)
+  out = out.replace(/(\d)\s*[\u2013\u2014]\s*(\d)/g, "$1 to $2");
+  // 3. Em/en dash used as punctuation (with spaces) to comma
+  out = out.replace(/\s+[\u2014\u2013]\s+/g, ", ");
+  // 4. Any remaining em/en dashes to comma + space
+  out = out.replace(/[\u2014\u2013]/g, ", ");
   // 5. Clean up double commas or comma-space-comma
   out = out.replace(/,\s*,/g, ",");
   return out;
