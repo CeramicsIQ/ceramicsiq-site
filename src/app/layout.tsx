@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL || "https://ceramicsiq.com"),
   title: {
-    default: "CeramicsIQ — Technique, Artists, Collector Intelligence",
+    default: "CeramicsIQ: Technique, Artists, Collector Intelligence",
     template: "%s | CeramicsIQ",
   },
   description:
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/",
     siteName: "CeramicsIQ",
-    title: "CeramicsIQ — Technique, Artists, Collector Intelligence",
+    title: "CeramicsIQ: Technique, Artists, Collector Intelligence",
     description:
       "Technique deep-dives, artist features, and collector intelligence for the ceramics world.",
   },
