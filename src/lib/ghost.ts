@@ -135,12 +135,11 @@ export const mockArtists: Artist[] = [
 
 /**
  * Truncate text at a sentence or word boundary so it never cuts mid-word.
- * Also replaces em dashes (â) with en dashes (â).
+ * Strips all dashes first via cleanDashes().
  */
 function smartExcerpt(text: string, maxLen = 220): string {
   if (!text) return "";
-  // Strip all em dashes and en dashes
-  let clean = text.replace(/\s*[ââ]\s*/g, ", ").replace(/,\s*,/g, ",");
+  let clean = cleanDashes(text);
   if (clean.length <= maxLen) return clean;
 
   // Try to cut at the last sentence end within the limit
@@ -163,12 +162,26 @@ function smartExcerpt(text: string, maxLen = 220): string {
 }
 
 /**
- * Strip all em dashes and en dashes from text, replacing with commas.
- * Handles patterns like "word â word" -> "word, word" and "word â word" -> "word, word".
+ * Remove ALL em dashes and en dashes from text (Unicode chars AND HTML entities).
+ * - "word â word" or "word â word" â "word, word"
+ * - "60â80%" â "60 to 80%"
+ * - "&mdash;" / "&ndash;" / "&#8212;" / "&#8211;" â same rules
  */
 function cleanDashes(text: string): string {
   if (!text) return "";
-  return text.replace(/\s*[ââ]\s*/g, ", ").replace(/,\s*,/g, ",");
+  let out = text;
+  // 1. Replace HTML entities first (before they get decoded)
+  out = out.replace(/&mdash;/gi, "â").replace(/&ndash;/gi, "â");
+  out = out.replace(/&#8212;/g, "â").replace(/&#8211;/g, "â");
+  // 2. En dash between numbers â "to" (e.g., 60â80 â 60 to 80)
+  out = out.replace(/(\d)\s*[ââ]\s*(\d)/g, "$1 to $2");
+  // 3. Em/en dash used as punctuation (with spaces) â comma
+  out = out.replace(/\s+[ââ]\s+/g, ", ");
+  // 4. Any remaining em/en dashes â comma + space
+  out = out.replace(/[ââ]/g, ", ");
+  // 5. Clean up double commas or comma-space-comma
+  out = out.replace(/,\s*,/g, ",");
+  return out;
 }
 
 // âââ Ghost API functions âââ
