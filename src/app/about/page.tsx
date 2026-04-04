@@ -76,7 +76,7 @@ export default function AboutPage() {
         <div className="max-w-[720px] mx-auto">
           <p className="font-serif text-[17px] leading-relaxed text-[#4A4238] mb-7">
             I make my own soda-fired stoneware at{" "}
-            <a href="https://linkensington.art" target="_blank" rel="noopener noreferrer" className="text-ash font-bold hover:text-ember transition-colors">Lin Kensington Art</a>.
+            <a href="https://LinKensingtonArt.com" target="_blank" rel="noopener noreferrer" className="text-ash font-bold hover:text-ember transition-colors">Lin Kensington Art</a>.
             CeramicsIQ is where I share everything I&apos;ve learned, and keep
             learning, about this world.
           </p>
