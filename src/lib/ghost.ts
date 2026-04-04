@@ -32,7 +32,7 @@ export interface Artist {
   image: string;
 }
 
-// ─── Mock data (used until Ghost is connected) ───
+// âââ Mock data (used until Ghost is connected) âââ
 
 const IMG = {
   sodaFiring: "/soda-firing-hero.jpg",
@@ -55,7 +55,7 @@ export const mockArticles: Article[] = [
     readTime: "12 min",
     excerpt: "A collector's guide to one of ceramics' most unpredictable and rewarding firing techniques. The kiln becomes the collaborator.",
     image: IMG.sodaFiring,
-    temp: "1,260°C", body: "Stoneware", atm: "Reduction",
+    temp: "1,260Â°C", body: "Stoneware", atm: "Reduction",
     featured: true,
   },
   {
@@ -68,7 +68,7 @@ export const mockArticles: Article[] = [
     readTime: "8 min",
     excerpt: "Decode the visual language of ceramic glazes: from crazing to crystal formation, every surface tells a story.",
     image: IMG.teaBowl,
-    temp: "1,220°C", body: "Kaolin", atm: "Oxidation",
+    temp: "1,220Â°C", body: "Kaolin", atm: "Oxidation",
     featured: true,
   },
   {
@@ -81,7 +81,7 @@ export const mockArticles: Article[] = [
     readTime: "10 min",
     excerpt: "A third-generation potter whose anagama kiln runs on instinct, patience, and 36-hour firing cycles.",
     image: IMG.studio,
-    temp: "1,180°C", body: "Iron-rich", atm: "Neutral",
+    temp: "1,180Â°C", body: "Iron-rich", atm: "Neutral",
     featured: true,
   },
   {
@@ -94,7 +94,7 @@ export const mockArticles: Article[] = [
     readTime: "6 min",
     excerpt: "Auction results, gallery trends, and why atmospheric firing is having a moment in the secondary market.",
     image: IMG.glaze,
-    temp: "1,300°C", body: "Porcelain", atm: "Reduction",
+    temp: "1,300Â°C", body: "Porcelain", atm: "Reduction",
   },
   {
     slug: "wadding-marks-guide",
@@ -106,7 +106,7 @@ export const mockArticles: Article[] = [
     readTime: "5 min",
     excerpt: "Those rough spots on the foot of a pot are evidence of process, and collectors should know the difference.",
     image: IMG.kiln,
-    temp: "1,280°C", body: "Stoneware", atm: "Reduction",
+    temp: "1,280Â°C", body: "Stoneware", atm: "Reduction",
   },
   {
     slug: "tea-bowl-collecting",
@@ -118,7 +118,7 @@ export const mockArticles: Article[] = [
     readTime: "9 min",
     excerpt: "The tea bowl is ceramics at its most essential. Here's how to build a collection with intention.",
     image: IMG.hero,
-    temp: "1,200°C", body: "Mixed", atm: "Oxidation",
+    temp: "1,200Â°C", body: "Mixed", atm: "Oxidation",
   },
 ];
 
@@ -131,16 +131,16 @@ export const mockArtists: Artist[] = [
   { name: "Yuki Ishida", technique: "Raku & pit firing", location: "Kyoto, JP", image: IMG.teaBowl },
 ];
 
-// ─── Helpers ───
+// âââ Helpers âââ
 
 /**
  * Truncate text at a sentence or word boundary so it never cuts mid-word.
- * Also replaces em dashes (—) with en dashes (–).
+ * Also replaces em dashes (â) with en dashes (â).
  */
 function smartExcerpt(text: string, maxLen = 220): string {
   if (!text) return "";
-  // Replace em dashes with en dashes
-  let clean = text.replace(/—/g, "–");
+  // Strip all em dashes and en dashes
+  let clean = text.replace(/\s*[ââ]\s*/g, ", ").replace(/,\s*,/g, ",");
   if (clean.length <= maxLen) return clean;
 
   // Try to cut at the last sentence end within the limit
@@ -163,14 +163,15 @@ function smartExcerpt(text: string, maxLen = 220): string {
 }
 
 /**
- * Strip em dashes from HTML content, replacing with en dashes.
+ * Strip all em dashes and en dashes from text, replacing with commas.
+ * Handles patterns like "word â word" -> "word, word" and "word â word" -> "word, word".
  */
-function cleanDashes(html: string): string {
-  if (!html) return "";
-  return html.replace(/—/g, "–");
+function cleanDashes(text: string): string {
+  if (!text) return "";
+  return text.replace(/\s*[ââ]\s*/g, ", ").replace(/,\s*,/g, ",");
 }
 
-// ─── Ghost API functions ───
+// âââ Ghost API functions âââ
 
 function isGhostConfigured(): boolean {
   return Boolean(GHOST_URL && GHOST_KEY);
@@ -190,7 +191,7 @@ function ghostPostToArticle(post: any): Article {
   return {
     slug: post.slug,
     title: post.title,
-    subtitle: post.custom_excerpt || "",
+    subtitle: cleanDashes(post.custom_excerpt || ""),
     tag: tags[0] || "Uncategorized",
     author: post.primary_author?.name || "CeramicsIQ",
     date: new Date(post.published_at).toLocaleDateString("en-US", {
@@ -213,7 +214,7 @@ function extractMeta(code: string, key: string): string | undefined {
   return match?.[1];
 }
 
-// ─── Public API ───
+// âââ Public API âââ
 
 export async function getArticles(): Promise<Article[]> {
   if (!isGhostConfigured()) return mockArticles;
