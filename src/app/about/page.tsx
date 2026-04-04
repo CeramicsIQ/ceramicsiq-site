@@ -74,7 +74,13 @@ export default function AboutPage() {
       {/* Personal note */}
       <section className="py-10 px-4 sm:px-8">
         <div className="max-w-[720px] mx-auto">
-          <p className="font-serif text-[17px] leading-relaxed text-[#4A4238] mb-7">
+          <div className="flex items-center gap-5 mb-7">
+            <img
+              src={IMG.linPortrait}
+              alt="Lin Kensington"
+              className="w-[80px] h-[80px] rounded-full object-cover flex-shrink-0"
+            />
+            <p className="font-serif text-[17px] leading-relaxed text-[#4A4238] mb-7">
             I make my own soda-fired stoneware at{" "}
             <a href="https://LinKensingtonArt.com" target="_blank" rel="noopener noreferrer" className="text-ash font-bold hover:text-ember transition-colors">Lin Kensington Art</a>.
             CeramicsIQ is where I share everything I&apos;ve learned, and keep
