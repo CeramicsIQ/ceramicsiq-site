@@ -23,7 +23,7 @@ export default function AboutPage() {
           </h1>
           <p className="font-serif text-[17px] text-[#4A4238] leading-relaxed mb-4">
             CeramicsIQ started because the ceramics world deserved better
-            content. Not Pinterest boards. Not listicles. Real depth, the kind
+            content. Not Pinterest boards. Not listicles. Real depth: the kind
             that helps you understand what you&apos;re looking at when you pick
             up a handmade bowl, and why it matters.
           </p>
@@ -35,7 +35,7 @@ export default function AboutPage() {
         </div>
         <div className="overflow-hidden">
           <img
-            src="https://res.cloudinary.com/dw7tdz8ee/image/upload/v1775338432/ceramicsiq/lin-kensington-pottery-headshot.jpg"
+            src={IMG.founder}
             alt="Lin Kensington"
             className="hover-image w-full h-[280px] md:h-[400px] object-cover"
           />
@@ -76,16 +76,17 @@ export default function AboutPage() {
         <div className="max-w-[720px] mx-auto">
           <div className="flex items-center gap-5 mb-7">
             <img
-              src={IMG.linPortrait}
+              src="https://res.cloudinary.com/dw7tdz8ee/image/upload/v1775342911/LinKensingtonHeadshotArtist_psxha6.png"
               alt="Lin Kensington"
               className="w-[80px] h-[80px] rounded-full object-cover flex-shrink-0"
             />
-            <p className="font-serif text-[17px] leading-relaxed text-[#4A4238] mb-7">
-            I make my own soda-fired stoneware at{" "}
-            <a href="https://LinKensingtonArt.com" target="_blank" rel="noopener noreferrer" className="text-ash font-bold hover:text-ember transition-colors">Lin Kensington Art</a>.
-            CeramicsIQ is where I share everything I&apos;ve learned, and keep
-            learning, about this world.
-          </p>
+            <p className="font-serif text-[17px] leading-relaxed text-[#4A4238]">
+              I make my own soda-fired stoneware at{" "}
+              <a href="https://LinKensingtonArt.com" target="_blank" rel="noopener noreferrer" className="text-ash font-bold hover:text-ember transition-colors">Lin Kensington Art</a>.
+              CeramicsIQ is where I share everything I&apos;ve learned, and keep
+              learning, about this world.
+            </p>
+          </div>
           <div className="bg-cream p-6 border border-line flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div>
               <h4 className="text-[15px] font-bold text-ash mb-1">
@@ -101,7 +102,7 @@ export default function AboutPage() {
               rel="noopener noreferrer"
               className="text-sm font-semibold text-ember no-underline hover:underline"
             >
-              Watch â
+              Watch →
             </a>
           </div>
         </div>
