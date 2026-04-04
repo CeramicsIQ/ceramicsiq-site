@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   description:
     "CeramicsIQ is technique deep-dives, artist features, and collector intelligence for the ceramics world. Built by Lin Kensington, a working soda-fired ceramicist.",
   openGraph: {
-    title: "About | CeramicsIQ",h
+    title: "About | CeramicsIQ",
     description:
       "Built by a working ceramicist. Technique deep-dives, artist features, and collector intelligence.",
   },
-};h
+};
 
 export default function AboutPage() {
   return (
@@ -95,7 +95,7 @@ export default function AboutPage() {
               rel="noopener noreferrer"
               className="text-sm font-semibold text-ember no-underline hover:underline"
             >
-              Watch →
+              Watch â
             </a>
           </div>
         </div>
