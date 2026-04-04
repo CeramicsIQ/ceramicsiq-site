@@ -23,7 +23,7 @@ export default function AboutPage() {
           </h1>
           <p className="font-serif text-[17px] text-[#4A4238] leading-relaxed mb-4">
             CeramicsIQ started because the ceramics world deserved better
-            content. Not Pinterest boards. Not listicles. Real depth — the kind
+            content. Not Pinterest boards. Not listicles. Real depth, the kind
             that helps you understand what you&apos;re looking at when you pick
             up a handmade bowl, and why it matters.
           </p>
@@ -76,9 +76,9 @@ export default function AboutPage() {
         <div className="max-w-[720px] mx-auto">
           <p className="font-serif text-[17px] leading-relaxed text-[#4A4238] mb-7">
             I make my own soda-fired stoneware at{" "}
-            <strong className="text-ash">LynnKensington Art</strong>.
-            CeramicsIQ is where I share everything I&apos;ve learned — and keep
-            learning — about this world.
+            <a href="https://linkensington.art" target="_blank" rel="noopener noreferrer" className="text-ash font-bold hover:text-ember transition-colors">Lin Kensington Art</a>.
+            CeramicsIQ is where I share everything I&apos;ve learned, and keep
+            learning, about this world.
           </p>
           <div className="bg-cream p-6 border border-line flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div>
