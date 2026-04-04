@@ -30,6 +30,7 @@ export interface Artist {
   technique: string;
   location: string;
   image: string;
+  url: string;
 }
 
 // âââ Mock data (used until Ghost is connected) âââ
@@ -123,13 +124,11 @@ export const mockArticles: Article[] = [
 ];
 
 export const mockArtists: Artist[] = [
-  { name: "Lin Kensington", technique: "Soda-fired ceramics & painting", location: "Oklahoma City, OK", image: IMG.founder },
-  { name: "Mika Tanaka", technique: "Soda-fired stoneware", location: "Shigaraki, JP", image: IMG.sodaFiring },
-  { name: "Clara Ruiz", technique: "Wood-fired porcelain", location: "Oaxaca, MX", image: IMG.teaBowl },
-  { name: "James Okafor", technique: "Atmospheric reduction", location: "Portland, OR", image: IMG.teaBowl },
-  { name: "Elina Voss", technique: "Salt-glazed earthenware", location: "Copenhagen, DK", image: IMG.glaze },
-  { name: "Ben Ahrens", technique: "Soda & ash glazing", location: "Asheville, NC", image: IMG.sodaFiring },
-  { name: "Yuki Ishida", technique: "Raku & pit firing", location: "Kyoto, JP", image: IMG.teaBowl },
+  { name: "Lin Kensington", technique: "Soda-fired ceramics & painting", location: "Oklahoma City, OK", image: IMG.founder, url: "https://LinKensingtonArt.com" },
+  { name: "Taylor Sijan", technique: "Decorated functional pottery", location: "Catawba Island, OH", image: IMG.sodaFiring, url: "https://www.taylorsijan.com" },
+  { name: "Akira Satake", technique: "Wood-fired ceramics", location: "Swannanoa, NC", image: IMG.teaBowl, url: "https://akirasatake.com" },
+  { name: "Andres Montenegro", technique: "Cone 6 glazed ceramics", location: "Daytona Beach, FL", image: IMG.glaze, url: "https://www.montenegroceramics.com" },
+  { name: "Marissa Childers", technique: "Functional ceramics & workshops", location: "Clay & Thistle Studio", image: IMG.hero, url: "https://www.marissachilders.com" },
 ];
 
 // âââ Helpers âââ
