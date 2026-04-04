@@ -53,9 +53,9 @@ export const mockArticles: Article[] = [
     author: "Lin Kensington",
     date: "March 28, 2026",
     readTime: "12 min",
-    excerpt: "A collector's guide to one of ceramics' most unpredictable — and rewarding — firing techniques. The kiln becomes the collaborator.",
+    excerpt: "A collector's guide to one of ceramics' most unpredictable and rewarding firing techniques. The kiln becomes the collaborator.",
     image: IMG.sodaFiring,
-    temp: "1,260°C", body: "Stoneware", atm: "Reduction",
+    temp: "1,260\u00b0C", body: "Stoneware", atm: "Reduction",
     featured: true,
   },
   {
@@ -66,9 +66,9 @@ export const mockArticles: Article[] = [
     author: "Lin Kensington",
     date: "March 25, 2026",
     readTime: "8 min",
-    excerpt: "Decode the visual language of ceramic glazes — from crazing to crystal formation, every surface tells a story.",
+    excerpt: "Decode the visual language of ceramic glazes, from crazing to crystal formation. Every surface tells a story.",
     image: IMG.teaBowl,
-    temp: "1,220°C", body: "Kaolin", atm: "Oxidation",
+    temp: "1,220\u00b0C", body: "Kaolin", atm: "Oxidation",
     featured: true,
   },
   {
@@ -81,7 +81,7 @@ export const mockArticles: Article[] = [
     readTime: "10 min",
     excerpt: "A third-generation potter whose anagama kiln runs on instinct, patience, and 36-hour firing cycles.",
     image: IMG.studio,
-    temp: "1,180°C", body: "Iron-rich", atm: "Neutral",
+    temp: "1,180\u00b0C", body: "Iron-rich", atm: "Neutral",
     featured: true,
   },
   {
@@ -94,7 +94,7 @@ export const mockArticles: Article[] = [
     readTime: "6 min",
     excerpt: "Auction results, gallery trends, and why atmospheric firing is having a moment in the secondary market.",
     image: IMG.glaze,
-    temp: "1,300°C", body: "Porcelain", atm: "Reduction",
+    temp: "1,300\u00b0C", body: "Porcelain", atm: "Reduction",
   },
   {
     slug: "wadding-marks-guide",
@@ -104,9 +104,9 @@ export const mockArticles: Article[] = [
     author: "Lin Kensington",
     date: "March 14, 2026",
     readTime: "5 min",
-    excerpt: "Those rough spots on the foot of a pot? They're evidence of process — and collectors should know the difference.",
+    excerpt: "Those rough spots on the foot of a pot? They're evidence of process, and collectors should know the difference.",
     image: IMG.kiln,
-    temp: "1,280°C", body: "Stoneware", atm: "Reduction",
+    temp: "1,280\u00b0C", body: "Stoneware", atm: "Reduction",
   },
   {
     slug: "tea-bowl-collecting",
@@ -118,7 +118,7 @@ export const mockArticles: Article[] = [
     readTime: "9 min",
     excerpt: "The tea bowl is ceramics at its most essential. Here's how to build a collection with intention.",
     image: IMG.hero,
-    temp: "1,200°C", body: "Mixed", atm: "Oxidation",
+    temp: "1,200\u00b0C", body: "Mixed", atm: "Oxidation",
   },
 ];
 
@@ -131,6 +131,42 @@ export const mockArtists: Artist[] = [
   { name: "Yuki Ishida", technique: "Raku & pit firing", location: "Kyoto, JP", image: IMG.teaBowl },
 ];
 
+// ─── Helpers ───
+
+/**
+ * Truncate text at a sentence or word boundary so it never cuts mid-word.
+ * Also replaces em dashes with en dashes.
+ */
+function smartExcerpt(text: string, maxLen = 220): string {
+  if (!text) return "";
+  let clean = text.replace(/\u2014/g, "\u2013");
+  if (clean.length <= maxLen) return clean;
+
+  const trimmed = clean.slice(0, maxLen);
+  const lastSentence = Math.max(
+    trimmed.lastIndexOf(". "),
+    trimmed.lastIndexOf("! "),
+    trimmed.lastIndexOf("? ")
+  );
+  if (lastSentence > maxLen * 0.4) {
+    return clean.slice(0, lastSentence + 1);
+  }
+
+  const lastSpace = trimmed.lastIndexOf(" ");
+  if (lastSpace > 0) {
+    return clean.slice(0, lastSpace) + "...";
+  }
+  return trimmed + "...";
+}
+
+/**
+ * Strip em dashes from HTML content, replacing with en dashes.
+ */
+function cleanDashes(html: string): string {
+  if (!html) return "";
+  return html.replace(/\u2014/g, "\u2013");
+}
+
 // ─── Ghost API functions ───
 
 function isGhostConfigured(): boolean {
@@ -138,7 +174,7 @@ function isGhostConfigured(): boolean {
 }
 
 function ghostApi(resource: string, params: Record<string, string> = {}) {
-  const url = new URL(`/ghost/api/content/${resource}/`, GHOST_URL);
+  const url = new URL(\`/ghost/api/content/\${resource}/\`, GHOST_URL);
   url.searchParams.set("key", GHOST_KEY);
   for (const [k, v] of Object.entries(params)) {
     url.searchParams.set(k, v);
@@ -157,12 +193,11 @@ function ghostPostToArticle(post: any): Article {
     date: new Date(post.published_at).toLocaleDateString("en-US", {
       year: "numeric", month: "long", day: "numeric",
     }),
-    readTime: `${post.reading_time || 5} min`,
-    excerpt: post.excerpt || "",
+    readTime: \`\${post.reading_time || 5} min\`,
+    excerpt: smartExcerpt(post.excerpt || ""),
     image: post.feature_image || IMG.sodaFiring,
-    html: post.html,
+    html: cleanDashes(post.html || ""),
     featured: post.featured || false,
-    // Custom ceramic metadata from Ghost code injection or custom fields
     temp: post.codeinjection_head ? extractMeta(post.codeinjection_head, "temp") : undefined,
     body: post.codeinjection_head ? extractMeta(post.codeinjection_head, "body") : undefined,
     atm: post.codeinjection_head ? extractMeta(post.codeinjection_head, "atm") : undefined,
@@ -170,7 +205,7 @@ function ghostPostToArticle(post: any): Article {
 }
 
 function extractMeta(code: string, key: string): string | undefined {
-  const match = code.match(new RegExp(`data-${key}="([^"]+)"`));
+  const match = code.match(new RegExp(\`data-\${key}="([^"]+)"\`));
   return match?.[1];
 }
 
@@ -198,7 +233,7 @@ export async function getArticle(slug: string): Promise<Article | null> {
   }
 
   try {
-    const res = await ghostApi(`posts/slug/${slug}`, {
+    const res = await ghostApi(\`posts/slug/\${slug}\`, {
       include: "tags,authors",
     });
     const data = await res.json();
@@ -214,7 +249,6 @@ export async function getFeaturedArticles(): Promise<Article[]> {
 }
 
 export async function getArtists(): Promise<Artist[]> {
-  // Artists will come from Ghost pages or a custom integration later
   return mockArtists;
 }
 
