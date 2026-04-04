@@ -123,9 +123,10 @@ export const mockArticles: Article[] = [
 ];
 
 export const mockArtists: Artist[] = [
+  { name: "Lin Kensington", technique: "Soda-fired ceramics & painting", location: "Oklahoma City, OK", image: IMG.founder },
   { name: "Mika Tanaka", technique: "Soda-fired stoneware", location: "Shigaraki, JP", image: IMG.sodaFiring },
   { name: "Clara Ruiz", technique: "Wood-fired porcelain", location: "Oaxaca, MX", image: IMG.teaBowl },
-  { name: "James Okafor", technique: "Atmospheric reduction", location: "Portland, OR", image: IMG.studio },
+  { name: "James Okafor", technique: "Atmospheric reduction", location: "Portland, OR", image: IMG.kiln },
   { name: "Elina Voss", technique: "Salt-glazed earthenware", location: "Copenhagen, DK", image: IMG.glaze },
   { name: "Ben Ahrens", technique: "Soda & ash glazing", location: "Asheville, NC", image: IMG.sodaFiring },
   { name: "Yuki Ishida", technique: "Raku & pit firing", location: "Kyoto, JP", image: IMG.teaBowl },
