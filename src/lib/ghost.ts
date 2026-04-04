@@ -33,7 +33,7 @@ export interface Artist {
   url: string;
 }
 
-// âââ Mock data (used until Ghost is connected) âââ
+// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ Mock data (used until Ghost is connected) Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 
 const IMG = {
   sodaFiring: "/soda-firing-hero.jpg",
@@ -56,7 +56,7 @@ export const mockArticles: Article[] = [
     readTime: "12 min",
     excerpt: "A collector's guide to one of ceramics' most unpredictable and rewarding firing techniques. The kiln becomes the collaborator.",
     image: IMG.sodaFiring,
-    temp: "1,260Â°C", body: "Stoneware", atm: "Reduction",
+    temp: "1,260ÃÂ°C", body: "Stoneware", atm: "Reduction",
     featured: true,
   },
   {
@@ -69,7 +69,7 @@ export const mockArticles: Article[] = [
     readTime: "8 min",
     excerpt: "Decode the visual language of ceramic glazes: from crazing to crystal formation, every surface tells a story.",
     image: IMG.teaBowl,
-    temp: "1,220Â°C", body: "Kaolin", atm: "Oxidation",
+    temp: "1,220ÃÂ°C", body: "Kaolin", atm: "Oxidation",
     featured: true,
   },
   {
@@ -82,7 +82,7 @@ export const mockArticles: Article[] = [
     readTime: "10 min",
     excerpt: "A third-generation potter whose anagama kiln runs on instinct, patience, and 36-hour firing cycles.",
     image: IMG.studio,
-    temp: "1,180Â°C", body: "Iron-rich", atm: "Neutral",
+    temp: "1,180ÃÂ°C", body: "Iron-rich", atm: "Neutral",
     featured: true,
   },
   {
@@ -95,7 +95,7 @@ export const mockArticles: Article[] = [
     readTime: "6 min",
     excerpt: "Auction results, gallery trends, and why atmospheric firing is having a moment in the secondary market.",
     image: IMG.glaze,
-    temp: "1,300Â°C", body: "Porcelain", atm: "Reduction",
+    temp: "1,300ÃÂ°C", body: "Porcelain", atm: "Reduction",
   },
   {
     slug: "wadding-marks-guide",
@@ -107,7 +107,7 @@ export const mockArticles: Article[] = [
     readTime: "5 min",
     excerpt: "Those rough spots on the foot of a pot are evidence of process, and collectors should know the difference.",
     image: IMG.kiln,
-    temp: "1,280Â°C", body: "Stoneware", atm: "Reduction",
+    temp: "1,280ÃÂ°C", body: "Stoneware", atm: "Reduction",
   },
   {
     slug: "tea-bowl-collecting",
@@ -119,19 +119,19 @@ export const mockArticles: Article[] = [
     readTime: "9 min",
     excerpt: "The tea bowl is ceramics at its most essential. Here's how to build a collection with intention.",
     image: IMG.hero,
-    temp: "1,200Â°C", body: "Mixed", atm: "Oxidation",
+    temp: "1,200ÃÂ°C", body: "Mixed", atm: "Oxidation",
   },
 ];
 
 export const mockArtists: Artist[] = [
-  { name: "Lin Kensington", technique: "Soda-fired ceramics & painting", location: "Oklahoma City, OK", image: IMG.founder, url: "https://LinKensingtonArt.com" },
+  { name: "Lin Kensington", technique: "Soda-fired ceramics & painting", location: "Oklahoma City, OK", image: "https://res.cloudinary.com/dw7tdz8ee/image/upload/v1775338159/ceramicsiq/lin-kensington-artist-portrait.jpg", url: "https://LinKensingtonArt.com" },
   { name: "Taylor Sijan", technique: "Decorated functional pottery", location: "Catawba Island, OH", image: IMG.sodaFiring, url: "https://www.taylorsijan.com" },
   { name: "Akira Satake", technique: "Wood-fired ceramics", location: "Swannanoa, NC", image: IMG.teaBowl, url: "https://akirasatake.com" },
   { name: "Andres Montenegro", technique: "Cone 6 glazed ceramics", location: "Daytona Beach, FL", image: IMG.glaze, url: "https://www.montenegroceramics.com" },
   { name: "Marissa Childers", technique: "Functional ceramics & workshops", location: "Clay & Thistle Studio", image: IMG.hero, url: "https://www.marissachilders.com" },
 ];
 
-// âââ Helpers âââ
+// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ Helpers Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 
 /**
  * Truncate text at a sentence or word boundary so it never cuts mid-word.
@@ -163,9 +163,9 @@ function smartExcerpt(text: string, maxLen = 220): string {
 
 /**
  * Remove ALL em dashes and en dashes from text (Unicode chars AND HTML entities).
- * - "word â word" or "word â word" â "word, word"
- * - "60â80%" â "60 to 80%"
- * - "&mdash;" / "&ndash;" / "&#8212;" / "&#8211;" â same rules
+ * - "word Ã¢ÂÂ word" or "word Ã¢ÂÂ word" Ã¢ÂÂ "word, word"
+ * - "60Ã¢ÂÂ80%" Ã¢ÂÂ "60 to 80%"
+ * - "&mdash;" / "&ndash;" / "&#8212;" / "&#8211;" Ã¢ÂÂ same rules
  */
 function cleanDashes(text: string): string {
   if (!text) return "";
@@ -184,7 +184,7 @@ function cleanDashes(text: string): string {
   return out;
 }
 
-// âââ Ghost API functions âââ
+// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ Ghost API functions Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 
 function isGhostConfigured(): boolean {
   return Boolean(GHOST_URL && GHOST_KEY);
@@ -227,7 +227,7 @@ function extractMeta(code: string, key: string): string | undefined {
   return match?.[1];
 }
 
-// âââ Public API âââ
+// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ Public API Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 
 export async function getArticles(): Promise<Article[]> {
   if (!isGhostConfigured()) return mockArticles;
