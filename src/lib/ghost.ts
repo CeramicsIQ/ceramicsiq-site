@@ -33,7 +33,7 @@ export interface Artist {
   url: string;
 }
 
-// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Mock data (used until Ghost is connected) ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+// ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Mock data (used until Ghost is connected) ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ
 
 const IMG = {
   sodaFiring: "/soda-firing-hero.jpg",
@@ -57,7 +57,7 @@ export const mockArticles: Article[] = [
     readTime: "12 min",
     excerpt: "A collector's guide to one of ceramics' most unpredictable and rewarding firing techniques. The kiln becomes the collaborator.",
     image: IMG.sodaFiring,
-    temp: "1,260ÃÂÃÂ°C", body: "Stoneware", atm: "Reduction",
+    temp: "1,260ÃÂÃÂÃÂÃÂ°C", body: "Stoneware", atm: "Reduction",
     featured: true,
   },
   {
@@ -70,7 +70,7 @@ export const mockArticles: Article[] = [
     readTime: "8 min",
     excerpt: "Decode the visual language of ceramic glazes: from crazing to crystal formation, every surface tells a story.",
     image: IMG.teaBowl,
-    temp: "1,220ÃÂÃÂ°C", body: "Kaolin", atm: "Oxidation",
+    temp: "1,220ÃÂÃÂÃÂÃÂ°C", body: "Kaolin", atm: "Oxidation",
     featured: true,
   },
   {
@@ -83,7 +83,7 @@ export const mockArticles: Article[] = [
     readTime: "10 min",
     excerpt: "A third-generation potter whose anagama kiln runs on instinct, patience, and 36-hour firing cycles.",
     image: IMG.studio,
-    temp: "1,180ÃÂÃÂ°C", body: "Iron-rich", atm: "Neutral",
+    temp: "1,180ÃÂÃÂÃÂÃÂ°C", body: "Iron-rich", atm: "Neutral",
     featured: true,
   },
   {
@@ -96,7 +96,7 @@ export const mockArticles: Article[] = [
     readTime: "6 min",
     excerpt: "Auction results, gallery trends, and why atmospheric firing is having a moment in the secondary market.",
     image: IMG.glaze,
-    temp: "1,300ÃÂÃÂ°C", body: "Porcelain", atm: "Reduction",
+    temp: "1,300ÃÂÃÂÃÂÃÂ°C", body: "Porcelain", atm: "Reduction",
   },
   {
     slug: "wadding-marks-guide",
@@ -108,7 +108,7 @@ export const mockArticles: Article[] = [
     readTime: "5 min",
     excerpt: "Those rough spots on the foot of a pot are evidence of process, and collectors should know the difference.",
     image: IMG.kiln,
-    temp: "1,280ÃÂÃÂ°C", body: "Stoneware", atm: "Reduction",
+    temp: "1,280ÃÂÃÂÃÂÃÂ°C", body: "Stoneware", atm: "Reduction",
   },
   {
     slug: "tea-bowl-collecting",
@@ -120,7 +120,7 @@ export const mockArticles: Article[] = [
     readTime: "9 min",
     excerpt: "The tea bowl is ceramics at its most essential. Here's how to build a collection with intention.",
     image: IMG.hero,
-    temp: "1,200ÃÂÃÂ°C", body: "Mixed", atm: "Oxidation",
+    temp: "1,200ÃÂÃÂÃÂÃÂ°C", body: "Mixed", atm: "Oxidation",
   },
 ];
 
@@ -132,7 +132,7 @@ export const mockArtists: Artist[] = [
   { name: "Marissa Childers", technique: "Functional ceramics & workshops", location: "Clay & Thistle Studio", image: IMG.hero, url: "https://www.marissachilders.com" },
 ];
 
-// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Helpers ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+// ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Helpers ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ
 
 /**
  * Truncate text at a sentence or word boundary so it never cuts mid-word.
@@ -164,9 +164,9 @@ function smartExcerpt(text: string, maxLen = 220): string {
 
 /**
  * Remove ALL em dashes and en dashes from text (Unicode chars AND HTML entities).
- * - "word ÃÂ¢ÃÂÃÂ word" or "word ÃÂ¢ÃÂÃÂ word" ÃÂ¢ÃÂÃÂ "word, word"
- * - "60ÃÂ¢ÃÂÃÂ80%" ÃÂ¢ÃÂÃÂ "60 to 80%"
- * - "&mdash;" / "&ndash;" / "&#8212;" / "&#8211;" ÃÂ¢ÃÂÃÂ same rules
+ * - "word ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ word" or "word ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ word" ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ "word, word"
+ * - "60ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ80%" ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ "60 to 80%"
+ * - "&mdash;" / "&ndash;" / "&#8212;" / "&#8211;" ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ same rules
  */
 function cleanDashes(text: string): string {
   if (!text) return "";
@@ -185,7 +185,7 @@ function cleanDashes(text: string): string {
   return out;
 }
 
-// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Ghost API functions ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+// ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Ghost API functions ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ
 
 function isGhostConfigured(): boolean {
   return Boolean(GHOST_URL && GHOST_KEY);
@@ -228,7 +228,7 @@ function extractMeta(code: string, key: string): string | undefined {
   return match?.[1];
 }
 
-// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Public API ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+// ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Public API ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ
 
 export async function getArticles(): Promise<Article[]> {
   if (!isGhostConfigured()) return mockArticles;
