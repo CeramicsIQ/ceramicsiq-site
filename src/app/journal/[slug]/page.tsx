@@ -187,7 +187,7 @@ export default async function ArticleDetailPage({
         <img
           src={article.image}
           alt={article.title}
-          className="w-full h-[420px] object-cover"
+          className="w-full object-contain"
         />
       </div>
 
