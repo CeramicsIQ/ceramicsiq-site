@@ -96,9 +96,27 @@ export default function RootLayout({
               founder: {
                 "@type": "Person",
                 name: "Lin Kensington",
+                url: "https://linkensingtonart.com",
+                sameAs: [
+                  "https://www.etsy.com/shop/LinKensington",
+                  "https://www.pinterest.com/LinKensingtonArt/",
+                  "https://www.instagram.com/lin_kensington_art/",
+                ],
               },
               sameAs: [
                 "https://www.youtube.com/@CeramicsIQ",
+                "https://www.instagram.com/ceramicsiq/",
+              ],
+              knowsAbout: [
+                "ceramics",
+                "pottery",
+                "kintsugi",
+                "Japanese ceramics",
+                "studio pottery",
+                "wood firing",
+                "soda firing",
+                "shino glaze",
+                "Mingei philosophy",
               ],
             }),
           }}
