@@ -122,6 +122,38 @@ export default function RootLayout({
             }),
           }}
         />
+      {/* JSON-LD WebSite + BreadcrumbList schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebSite",
+                "@id": (process.env.SITE_URL || "https://ceramicsiq.com") + "/#website",
+                url: process.env.SITE_URL || "https://ceramicsiq.com",
+                name: "CeramicsIQ",
+                description: "Technique deep-dives, artist features, and collector intelligence for the ceramics world.",
+                publisher: {
+                  "@id": (process.env.SITE_URL || "https://ceramicsiq.com") + "/#organization",
+                },
+              },
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: process.env.SITE_URL || "https://ceramicsiq.com",
+                  },
+                ],
+              },
+            ],
+          }),
+        }}
+      />
       {/* Google Analytics */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-SYRFE3ZR2W"
