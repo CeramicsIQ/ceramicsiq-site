@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Tools",
   description:
-    "Free interactive tools for potters and ceramic artists — glaze batch calculator, firing schedule builder, and more. Built by a working ceramicist.",
+    "Free interactive tools for potters and ceramic artists — glaze batch calculator, clay shrinkage calculator, and more. Built by a working ceramicist.",
   alternates: {
     canonical: "/tools",
   },
@@ -33,11 +33,11 @@ const tools: Tool[] = [
     status: "live",
   },
   {
-    title: "Firing Schedule Builder",
-    href: "/tools/firing-schedule",
+    title: "Clay Shrinkage Calculator",
+    href: "/tools/clay-shrinkage",
     blurb:
-      "Build a complete kiln firing schedule — ramp rates, hold times, and controlled cooling — formatted for common controllers. Includes soda and atmosphere firing presets.",
-    status: "coming-soon",
+      "Find your clay body's shrinkage rate from wet and fired measurements, or enter a target fired size to get the exact wet build size. Supports mm, cm, and inches with a wet-to-dry breakdown.",
+    status: "live",
   },
   {
     title: "Glaze Material Substitution Helper",
