@@ -40,6 +40,13 @@ const tools: Tool[] = [
     status: "live",
   },
   {
+    title: "Ceramics Critique",
+    href: "/tools/ceramics-critique",
+    blurb:
+      "Upload a photo of your piece and get a free critique covering form, glaze work, surface quality, and one or two concrete suggestions. Two critiques per session.",
+    status: "live",
+  },
+  {
     title: "Glaze Material Substitution Helper",
     href: "/tools/substitutions",
     blurb:
