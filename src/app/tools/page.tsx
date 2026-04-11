@@ -58,7 +58,7 @@ export default function ToolsIndexPage() {
             Tools for Working Potters.
           </p>
           <p className="text-sm text-smoke mt-3">
-            Free, mobile-friendly calculators and planners. Built for the studio, not the lab.
+            Free, mobile-friendly calculators and planners. Built for the studio.
           </p>
         </div>
       </div>
